@@ -1,0 +1,136 @@
+4.alex@alex:~/SI_2023_lab1_121074$ git init
+    Initialized empty Git repository in /home/alex/SI_2023_lab1_121074/.git/
+5.alex@alex:~/SI_2023_lab1_121074$ git remote add origin https://github.com/AleksandarLazo/SI_2023_lab1_121074.git
+6.alex@alex:~/SI_2023_lab1_121074$ nano README.md
+alex@alex:~/SI_2023_lab1_121074$ git add README.md 
+alex@alex:~/SI_2023_lab1_121074$ git commit -a -m "Initial commit"
+    [master (root-commit) ecb0bd5] Initial commit
+     1 file changed, 2 insertions(+)
+     create mode 100644 README.md
+alex@alex:~/SI_2023_lab1_121074$ git branch -M master
+alex@alex:~/SI_2023_lab1_121074$ git push -u origin master
+    Counting objects: 3, done.
+    Writing objects: 100% (3/3), 258 bytes | 258.00 KiB/s, done.
+    Total 3 (delta 0), reused 0 (delta 0)
+    To https://github.com/AleksandarLazo/SI_2023_lab1_121074.git
+     * [new branch]      master -> master
+    Branch 'master' set up to track remote branch 'master' from 'origin'.
+7.alex@alex:~/SI_2023_lab1_121074$ nano SILab1.java
+alex@alex:~/SI_2023_lab1_121074$ git add SILab1.java 
+alex@alex:~/SI_2023_lab1_121074$ git commit -a -m "Add java class"
+    [master 0c3ab5d] Add java class
+     1 file changed, 41 insertions(+)
+     create mode 100644 SILab1.java
+8.alex@alex:~/SI_2023_lab1_121074$ git pull
+alex@alex:~/SI_2023_lab1_121074$ git push
+    Counting objects: 3, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 636 bytes | 636.00 KiB/s, done.
+    Total 3 (delta 0), reused 0 (delta 0)
+    To https://github.com/AleksandarLazo/SI_2023_lab1_121074.git
+       ecb0bd5..0c3ab5d  master -> master
+9.alex@alex:~/SI_2023_lab1_121074$ git branch bug1 master
+alex@alex:~/SI_2023_lab1_121074$ git branch bug2 master
+alex@alex:~/SI_2023_lab1_121074$ git branch bug3 master
+10.alex@alex:~/SI_2023_lab1_121074$ git checkout bug1
+    Switched to branch 'bug1'
+11.alex@alex:~/SI_2023_lab1_121074$ git diff
+    diff --git a/SILab1.java b/SILab1.java
+    index 81e6609..5497ded 100644
+alex@alex:~/SI_2023_lab1_121074$ git commit -a -m "Fix wrong loop for reading"
+    [bug1 a7cb377] Fix wrong loop for reading
+     1 file changed, 3 insertions(+), 2 deletions(-)
+12.alex@alex:~/SI_2023_lab1_121074$ git checkout bug2
+    Switched to branch 'bug2'
+13.alex@alex:~/SI_2023_lab1_121074$ git commit -a -m "Fix wrong condition in filterOddNumbers"
+    [bug2 438366f] Fix wrong condition in filterOddNumbers
+     1 file changed, 1 insertion(+), 1 deletion(-)
+14.alex@alex:~/SI_2023_lab1_121074$ git checkout bug3
+    Switched to branch 'bug3'
+15.alex@alex:~/SI_2023_lab1_121074$ git commit -a -m "Fix method sumEvenNumbers"
+    [bug3 43b703a] Fix method sumEvenNumbers
+     1 file changed, 1 insertion(+), 1 deletion(-)
+16.alex@alex:~/SI_2023_lab1_121074$ git push --set-upstream origin bug3
+    Branch 'bug3' set up to track remote branch 'bug3' from 'origin'.
+alex@alex:~/SI_2023_lab1_121074$ git checkout bug2
+    Switched to branch 'bug2'
+alex@alex:~/SI_2023_lab1_121074$ git push --set-upstream origin bug2
+    Branch 'bug2' set up to track remote branch 'bug2' from 'origin'.
+alex@alex:~/SI_2023_lab1_121074$ git checkout bug1
+    Switched to branch 'bug1'
+alex@alex:~/SI_2023_lab1_121074$ git push --set-upstream origin bug1
+    Branch 'bug1' set up to track remote branch 'bug1' from 'origin'.
+17.alex@alex:~/SI_2023_lab1_121074$ git checkout master
+    Switched to branch 'master'
+    Your branch is up to date with 'origin/master'.
+alex@alex:~/SI_2023_lab1_121074$ git fetch
+alex@alex:~/SI_2023_lab1_121074$ git pull
+    Already up to date.
+18.alex@alex:~/SI_2023_lab1_121074$ git merge bug1
+FF- nema drugi promeni
+    Updating 0c3ab5d..a7cb377
+    Fast-forward
+     SILab1.java | 5 +++--
+     1 file changed, 3 insertions(+), 2 deletions(-)
+19.alex@alex:~/SI_2023_lab1_121074$ git pull
+    Already up to date.
+alex@alex:~/SI_2023_lab1_121074$ git push
+    To https://github.com/AleksandarLazo/SI_2023_lab1_121074.git
+       0c3ab5d..a7cb377  master -> master
+20.alex@alex:~/SI_2023_lab1_121074$ git merge bug2
+recursive- ima promeni na master od bug1
+    Auto-merging SILab1.java
+    Merge made by the 'recursive' strategy.
+     SILab1.java | 2 +-
+     1 file changed, 1 insertion(+), 1 deletion(-)
+21.alex@alex:~/SI_2023_lab1_121074$ git pull
+    Already up to date.
+alex@alex:~/SI_2023_lab1_121074$ git push
+    To https://github.com/AleksandarLazo/SI_2023_lab1_121074.git
+       a7cb377..bb6f77e  master -> master
+22.alex@alex:~/SI_2023_lab1_121074$ git checkout bug3
+    Switched to branch 'bug3'
+    Your branch is up to date with 'origin/bug3'.
+23.alex@alex:~/SI_2023_lab1_121074$ git rebase master
+    First, rewinding head to replay your work on top of it...
+    Applying: Fix method sumEvenNumbers
+24.alex@alex:~/SI_2023_lab1_121074$ git checkout master
+    Switched to branch 'master'
+    Your branch is up to date with 'origin/master'.
+25.alex@alex:~/SI_2023_lab1_121074$ git merge bug3
+ff- poradi rebase
+    Updating bb6f77e..a66860f
+    Fast-forward
+     SILab1.java | 2 +-
+     1 file changed, 1 insertion(+), 1 deletion(-)
+26.alex@alex:~/SI_2023_lab1_121074$ git pull
+    Already up to date.
+alex@alex:~/SI_2023_lab1_121074$ git push
+    To https://github.com/AleksandarLazo/SI_2023_lab1_121074.git
+       bb6f77e..a66860f  master -> master
+alex@alex:~/SI_2023_lab1_121074$ git checkout bug1
+    Switched to branch 'bug1'
+    Your branch is up to date with 'origin/bug1'.
+alex@alex:~/SI_2023_lab1_121074$ git pull
+    Already up to date.
+alex@alex:~/SI_2023_lab1_121074$ git push
+    Everything up-to-date
+alex@alex:~/SI_2023_lab1_121074$ git checkout bug2
+    Your branch is up to date with 'origin/bug2'.
+alex@alex:~/SI_2023_lab1_121074$ git push
+    Everything up-to-date
+alex@alex:~/SI_2023_lab1_121074$ git checkout bug3
+    Switched to branch 'bug3'
+    Your branch and 'origin/bug3' have diverged,
+    and have 4 and 1 different commits each, respectively.
+      (use "git pull" to merge the remote branch into yours)
+alex@alex:~/SI_2023_lab1_121074$ git pull
+    Merge made by the 'recursive' strategy.
+alex@alex:~/SI_2023_lab1_121074$ git push
+    To https://github.com/AleksandarLazo/SI_2023_lab1_121074.git
+       43b703a..2e93b2e  bug3 -> bug3
+27.alex@alex:~/SI_2023_lab1_121074$ git add 121074.txt logs.txt
+git commit -a -m "Final commit"
+git push
+

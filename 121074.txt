@@ -1,0 +1,52 @@
+git init
+git remote add origin https://github.com/AleksandarLazo/SI_2023_lab1_121074.git
+git add README.md 
+git commit -a -m "Initial commit"
+git branch -M master
+git push -u origin master
+git add SILab1.java 
+git commit -a -m "Add java class"
+git pull
+git push
+git branch bug1 master
+git branch bug2 master
+git branch bug3 master
+git checkout bug1
+git diff
+git commit -a -m "Fix wrong loop for reading"
+git checkout bug2
+git commit -a -m "Fix wrong condition in filterOddNumbers"
+git checkout bug3
+git commit -a -m "Fix method sumEvenNumbers"
+git push --set-upstream origin bug3
+git checkout bug2
+git push --set-upstream origin bug2
+git checkout bug1
+git push --set-upstream origin bug1
+git checkout master
+git fetch
+git pull
+git merge bug1
+git pull
+git push
+git merge bug2
+git pull
+git push
+git checkout bug3
+git rebase master
+git checkout master
+git merge bug3
+git pull
+git push
+git checkout bug1
+git pull
+git push
+git checkout bug2
+git push
+git checkout bug3
+git pull
+git push
+git add 121074.txt logs.txt
+git commit -a -m "Final commit"
+git push
+
